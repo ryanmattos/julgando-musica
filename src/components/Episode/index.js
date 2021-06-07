@@ -8,7 +8,6 @@ import instagramIcon from '../../images/instagram-8bit.png'
 import './style.scss'
 
 export default function Episode({ props }){
-   console.log(props)
    return (
       <div className="episode">
          <img src={props.images[0].url} alt="episode thumb" data-tip="Ver mais informações" data-for="episode-tip"/>

@@ -6,6 +6,8 @@
 
    overflow-x: hidden;
 
+   transition: .5s cubic-bezier(0.43, 0.18, 0.46, 0.77);
+
    article {
       height: 35em;
       max-width: 100vw;
@@ -44,6 +46,13 @@
                color: #fff;
                text-decoration: none;
             }
+         }
+
+         img {
+            object-fit: cover;
+
+            height: 16em;
+            width: 16em;
          }
       
          .side-info {
@@ -132,6 +141,83 @@
       
          img {
             filter: drop-shadow(pxToEm(-37) pxToEm(-37) 0px #3C96B6);
+         }
+      }
+   }
+}
+
+
+@media (max-width: $screen-tablet) {
+   #content {
+      article {
+         font-size: 18px;
+         
+         &:first-of-type {
+            height: 38em;
+         }
+
+         img {
+            height: 14em !important;
+            width: 14em !important;
+         }
+
+         .card {
+            padding: 0 3em;
+            width: 90%;
+         }
+      }
+
+      #mariabeatriz .card {
+         margin-top: 1.5em;
+         margin-right: 1em;
+      }
+
+      #matheusdiniz .card {
+         margin-left: 1em;
+      }
+   }
+}
+
+@media (max-width: $screen-mobile) {
+   #content {
+      article {
+         height: 42em;
+
+         &:first-of-type {
+            height: 42em;
+         }
+
+         .card {
+            width: 80%;
+            height: auto;
+            padding: 3em 2em;
+            flex-direction: column-reverse;
+         
+            p:first-child {
+               padding-top: .4em;
+            }
+
+            .side-info ul {
+               padding: 1em 0;
+            }
+
+            span {
+               bottom: 1.5em;
+            }
+         }
+      }
+      #mariabeatriz .card {
+         margin-top: 1.5em;
+         margin-right: 1em;
+      }
+
+      #matheusdiniz .card {
+         margin-left: 1em;
+      }
+
+      article:last-of-type {
+         .card {
+            flex-direction: column-reverse;
          }
       }
    }

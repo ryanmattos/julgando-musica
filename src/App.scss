@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 $font-size: 24;
+$screen-tablet: 768px;
+$screen-mobile: 425px;
 
 * {
    margin: 0;
@@ -36,3 +38,15 @@ body {
    @return $pixel / $font-size * 1em;
 }
 
+@media (max-width: $screen-tablet) {
+   body {
+      font-size: 20px !important;
+   }
+}
+
+@media (max-width: $screen-mobile) {
+   $font-size: 16 !important;
+   body {
+      font-size: 18px !important;
+   }
+}
