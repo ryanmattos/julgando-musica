@@ -1,0 +1,21 @@
+@import "../../App.scss";
+
+footer {
+   height: pxToEm(180);
+   width: 100vw;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+
+   background-color: #213043;
+   color: #fff;
+
+   font-family: "Poppins";
+   font-size: pxToEm(22);
+
+   p:last-child {
+      font-size: pxToEm(16);
+   }
+}

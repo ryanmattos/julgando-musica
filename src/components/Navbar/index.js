@@ -1,21 +1,25 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../../images/Logo.png'
 
 import './style.scss'
 
 export default function Navbar() {
+   const location = useLocation();
+
    return (
       <nav>
-         <img src={logo} alt="julgandomusica.com" />
+         <Link to="/">
+            <img src={logo} alt="julgandomusica.com" />
+         </Link>
          <ul>
-            <Link>
-               <li className="active">Episódios</li>
+            <Link to="/" >
+               <li className={location.pathname === "/" ? "active" : ""}>Episódios</li>
             </Link>
-            <Link>
-               <li>Apresentadores</li>
+            <Link to="/about">
+               <li className={location.pathname === "/about" ? "active" : ""}>Apresentadores</li>
             </Link>
          </ul>
       </nav>
