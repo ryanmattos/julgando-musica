@@ -81,7 +81,7 @@
       height: 39.2em;
    }
 
-   article:last-child {
+   article:last-of-type {
       .card {
          flex-direction: row-reverse;
       }
