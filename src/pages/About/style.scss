@@ -183,9 +183,16 @@
       article {
          height: 42em;
 
+         font-size: 16px;
+
          &:first-of-type {
-            height: 42em;
+            height: 44em;
          }
+
+         // img {
+         //    height: 12em !important;
+         //    width: 12em !important;
+         // }
 
          .card {
             width: 80%;
