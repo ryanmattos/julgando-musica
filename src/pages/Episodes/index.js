@@ -7,18 +7,40 @@ import Episode from '../../components/Episode'
 import './style.scss'
 
 export default function Episodes() {
-   const [episodes, setEpisodes] = useState({a: "fodase"});
+   const [episodes, setEpisodes] = useState({});
+   const [token, setToken] = useState(localStorage.getItem('token'));
 
    useEffect(() => {
-      async function fetchEpisodes() {
-         await axios.get(`https://api.spotify.com/v1/shows/${process.env.REACT_APP_PODCAST_ID}?market=ES`, {
+      async function getToken() {
+         const params = new URLSearchParams()
+         params.append('grant_type', 'client_credentials')
+
+         await axios.post('https://accounts.spotify.com/api/token', params, {
             headers: {
-               Authorization: `Bearer ${process.env.REACT_APP_BEARER}`
+               'Content-Type': 'application/x-www-form-urlencoded',
+               'Authorization': `Basic ${process.env.REACT_APP_CREDENTIALS}`
+               
             }
-         }).then((res) => {setEpisodes(res.data); console.log(res.data.episodes)})
+         }).then(res => {
+            console.log(res.data.access_token)
+            fetchEpisodes(res.data.access_token)
+            localStorage.setItem('token', res.data.access_token)
+            setToken(res.data.access_token)
+         })
       }
 
-      fetchEpisodes()
+      async function fetchEpisodes(token) {
+         console.log(token)
+         await axios.get(`https://api.spotify.com/v1/shows/${process.env.REACT_APP_PODCAST_ID}?market=ES`, {
+            headers: {
+               Authorization: `Bearer ${token}`
+            }
+         }).then((res) => {setEpisodes(res.data); console.log(res)})
+         .catch((err) => getToken())
+      }
+
+      if (token === null) getToken()
+      fetchEpisodes(token)
       
    }, [])
 
