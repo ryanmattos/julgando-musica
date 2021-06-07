@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .episode {
    display: flex;
 
@@ -53,7 +55,7 @@
       ul {
          display: flex;
 
-         justify-content: start;
+         justify-content: flex-start;
          align-items: center;
          gap: 2em;
 
@@ -76,6 +78,8 @@
 
             img {
                margin-right: .5em;
+               width: 2.7em;
+               height: auto;
             }
          }
 
@@ -85,6 +89,54 @@
 
          #instagram {
             color: #C8377F;
+            
+            img {
+               width: 2.2em;
+               margin-right: .55em;
+            }
+         }
+      }
+   }
+}
+
+
+@media (max-width: $screen-tablet) {
+   .episode {
+
+   }
+}
+
+@media (max-width: $screen-mobile) {
+   .episode {
+      flex-direction: column !important;
+   
+      gap: 1.5em;
+
+      img {
+         width: 60%;
+         height: auto;
+
+         margin: 0 auto;
+      }
+
+      .side-info {
+         text-align: center;
+
+         p {
+            font-size: 1em;
+         }
+
+         .actions {
+            ul {
+               gap: 1em;
+
+               justify-content: center;
+               li {
+                  img {
+                     margin-right: .2em;
+                  }
+               }
+            }
          }
       }
    }

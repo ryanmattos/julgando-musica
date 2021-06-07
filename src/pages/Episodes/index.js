@@ -22,7 +22,6 @@ export default function Episodes() {
                
             }
          }).then(res => {
-            console.log(res.data.access_token)
             fetchEpisodes(res.data.access_token)
             localStorage.setItem('token', res.data.access_token)
             setToken(res.data.access_token)
@@ -30,19 +29,18 @@ export default function Episodes() {
       }
 
       async function fetchEpisodes(token) {
-         console.log(token)
          await axios.get(`https://api.spotify.com/v1/shows/${process.env.REACT_APP_PODCAST_ID}?market=ES`, {
             headers: {
                Authorization: `Bearer ${token}`
             }
-         }).then((res) => {setEpisodes(res.data); console.log(res)})
-         .catch((err) => getToken())
+         }).then((res) => {setEpisodes(res.data)})
+         .catch(() => getToken())
       }
 
       if (token === null) getToken()
       fetchEpisodes(token)
       
-   }, [])
+   }, [token])
 
    if ( episodes.episodes === null ) return
 
@@ -56,7 +54,7 @@ export default function Episodes() {
          </div>
          <div className="episodes-row">
             {episodes.episodes?.items && episodes.episodes.items.map((episode) => {
-               return <Episode props={episode} />
+               return <Episode props={episode} key={episode.id} />
             })}
          </div>
          <Footer />
