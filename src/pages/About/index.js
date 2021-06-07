@@ -8,6 +8,8 @@ import Footer from '../../components/Footer'
 import './style.scss'
 
 export default function About() {
+   document.title += ' - Apresentadores'
+
    return (
       <div id="content">
          <article id="mariabeatriz">

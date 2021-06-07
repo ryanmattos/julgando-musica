@@ -17,5 +17,10 @@ footer {
 
    p:last-child {
       font-size: pxToEm(16);
+
+      a {
+         margin-left: .2em;
+         color: #fff;
+      }
    }
 }
