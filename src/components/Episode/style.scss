@@ -1,0 +1,91 @@
+.episode {
+   display: flex;
+
+   gap: 2em;
+
+   padding: 1em 0;
+
+   > img {
+      height: 7.5em;
+      width: 7.5em;
+      
+      cursor: pointer;
+
+      box-shadow: .33em .33em 0px -1px #EE77AC;
+
+      transition: .15s cubic-bezier(0.43, 0.18, 0.46, 0.77);
+   }
+
+   > img:hover {
+      transform: translate(-.25em, -.25em);
+      box-shadow: .53em .53em 0px -1px #a7587b;
+   }
+
+   .side-info {
+      p:first-child {
+         font-family: 'VT323';
+         font-size: 1.75em;
+
+         margin-bottom: .25em;
+
+         color: #0A2830;
+         text-shadow: .06em .06em 0px #CC6B8E;
+      }
+
+      p {
+         font-family: 'Nunito';
+         font-size: .8em;
+
+         color: rgba(51, 51, 51, .75);
+
+         display: -webkit-box;
+         line-clamp: 3;
+         -webkit-line-clamp: 3;
+         -webkit-box-orient: vertical;  
+         overflow: hidden;
+      }
+   }
+
+   .actions {
+      font-family: 'VT323';
+      font-size: .92em;
+
+      ul {
+         display: flex;
+
+         justify-content: start;
+         align-items: center;
+         gap: 2em;
+
+         list-style-type: none;
+
+         margin-top: .5em;
+
+         a {
+            transition: .35s cubic-bezier(0.43, 0.18, 0.46, 0.77);
+         }
+
+         > a:hover {
+            opacity: .75;
+         }
+
+         li {
+            display: flex;
+
+            align-items: center;
+
+            img {
+               margin-right: .5em;
+            }
+         }
+
+         #spotify {
+            color: #399355;
+         }
+
+         #instagram {
+            color: #C8377F;
+         }
+      }
+   }
+}

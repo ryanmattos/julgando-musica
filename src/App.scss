@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+$font-size: 24;
 
 * {
    margin: 0;
@@ -8,7 +11,7 @@
 }
 
 body {
-   font-size: 24px;
+   font-size: $font-size * 1px;
 
    a {
       text-decoration: none;
@@ -27,5 +30,9 @@ body {
    .tooltip:after {
       display: none;
    }
+}
+
+@function pxToEm($pixel) {
+   @return $pixel / $font-size * 1em;
 }
 
